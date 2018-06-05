@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/").permitAll()
 				//.antMatchers("/login").permitAll()
 				.antMatchers("/register").permitAll()
-				.antMatchers("/app/*").hasRole("USER")
+				.antMatchers("/app/*").hasAuthority("USER")
 				.anyRequest().authenticated()
 				.and().csrf().disable()
 				.formLogin()
@@ -44,21 +44,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		
-		/*auth
+		auth
 			.userDetailsService(new UserDetailsService(){
 
 				@Override
 				public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 					
 					
-					Optional<Reader> reader= readerRepository.findById(username);
-					return reader.get();
+					Reader reader= readerRepository.findOne(username);
+					System.out.println("SecurityConfit(): user: "+reader.getFullname());
+					System.out.println(reader.getUsername() +" : " +reader.getPassword());
+					System.out.println(reader.getAuthorities().toString());
+					return reader;
 				}
 				
-			});*/
-		auth.inMemoryAuthentication()//.passwordEncoder(new BCryptPasswordEncoder())
+			});
+		/*auth.inMemoryAuthentication()//.passwordEncoder(new BCryptPasswordEncoder())
         .withUser("test")
             .password("secret")
-            .roles("USER");
+            .roles("USER");*/
 	}
 }

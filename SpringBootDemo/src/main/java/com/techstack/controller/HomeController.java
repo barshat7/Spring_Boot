@@ -32,6 +32,6 @@ public class HomeController {
 		System.out.println("username: " +reader.getUsername());
 		readerRepository.save(reader);
 		String username = reader.getUsername();
-		return "redirect:/app/12";
+		return "redirect:/login";
 	}
 }

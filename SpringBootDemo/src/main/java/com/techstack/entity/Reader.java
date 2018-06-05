@@ -1,11 +1,12 @@
 package com.techstack.entity;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.assertj.core.util.Arrays;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,8 +25,8 @@ public class Reader implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
-		return null;
-		//return (Collection<? extends GrantedAuthority>) Arrays.asList(new SimpleGrantedAuthority("READER"));
+		//return null;
+		return (Collection<? extends GrantedAuthority>) Arrays.asList(new SimpleGrantedAuthority("USER"));
 	}
 
 	@Override
