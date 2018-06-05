@@ -21,6 +21,11 @@ public class HomeController {
 		
 		return "login";
 	}
+	@GetMapping("/register")
+	public String register() {
+		
+		return "register";
+	}
 	@PostMapping("/register")
 	public String register(Reader reader) {
 		System.out.println("Register user: " +reader.getFullname());
