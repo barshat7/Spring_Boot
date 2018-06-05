@@ -1,4 +1,4 @@
-package com.techstack;
+package com.techstack.controller;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import com.techstack.entity.Book;
 import com.techstack.repository.ReadingListRepository;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/app")
 public class ReadingListController {
 
 	@Autowired
@@ -33,6 +33,6 @@ public class ReadingListController {
 		
 		book.setReader(reader);
 		readingListRepository.save(book);
-		return "redirect:/{reader}";
+		return "redirect:app/{reader}";
 	}
 }
