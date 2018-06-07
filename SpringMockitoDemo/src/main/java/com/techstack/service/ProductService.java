@@ -9,5 +9,5 @@ public interface ProductService {
 	public List<Product> getAllProducts();
 	public Product getProductById(String id);
 	public Double calculateTotal(List<Product> products);
-	public void saveProduct(Product product);
+	public String saveProduct(Product product);
 }
