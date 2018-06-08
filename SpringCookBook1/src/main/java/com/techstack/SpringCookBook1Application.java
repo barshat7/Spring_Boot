@@ -15,7 +15,7 @@ public class SpringCookBook1Application {
 		SpringApplication.run(SpringCookBook1Application.class, args);
 	}
 	
-	@Scheduled(initialDelay=1000,fixedRate=3000)
+	@Scheduled(initialDelay=1000,fixedRate=10000)
 	public void run() {
 		System.out.println("Current time is: " +Calendar.getInstance().getTime());
 	}
