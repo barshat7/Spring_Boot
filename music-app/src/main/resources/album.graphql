@@ -1,0 +1,21 @@
+
+schema{
+
+	query: Query
+}
+
+type Query{
+
+	allAlbums: [Album]
+	album(id: String): Album
+}
+
+type Album{
+	
+	id: String
+	name: String
+	genre: String
+	artist: String
+	releaseDate: String
+	songList: [String]
+}
